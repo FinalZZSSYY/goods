@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zsy.goods.mapper.CategoryMapper">
+    <insert id="add">
+        insert into t_category(cid,cname,pid,`desc`) values(#{category.cid},#{category.cname},#{category.pid},#{category.desc})
+    </insert>
+    <update id="edit">
+        update t_category set cname=#{category.cname}, pid=#{category.pid}, `desc`=#{category.desc} where cid=#{category.cid}
+    </update>
+    <delete id="delete">
+        delete from t_category where cid = #{cid}
+    </delete>
+    <select id="findByParent" resultType="com.zsy.goods.pojo.Category">
+        select * from t_category where pid = #{pid}
+    </select>
+    <select id="findAllFirst" resultType="com.zsy.goods.pojo.Category">
+        select * from t_category where pid is null order by orderBy
+    </select>
+    <select id="findParent" resultType="com.zsy.goods.pojo.Category">
+        select * from t_category where pid = #{pid}
+    </select>
+    <select id="load" resultType="com.zsy.goods.pojo.Category">
+        select * from t_category where cid = #{cid}
+    </select>
+    <select id="findChildrenCountByParent" resultType="java.lang.Integer">
+        select count(*) from t_category where pid = #{pid}
+    </select>
+    <select id="findPartentByCid" resultType="com.zsy.goods.pojo.Category">
+        select * from t_category where cid = #{cid}
+    </select>
+</mapper>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zsy.goods.mapper.BookMapper">
+    <insert id="add">
+        insert into t_book(bid,bname,author,price,currPrice,discount,press,publishtime,edition,pageNum,wordNum,printtime,booksize,paper,cid,image_w,image_b) values(#{book.bid},#{book.bname},#{book.author},#{book.price},#{book.currPrice},#{book.discount},#{book.press},#{book.publishtime},#{book.edition},#{book.pageNum},#{book.wordNum},#{book.printtime},#{book.booksize},#{book.paper},#{book.cid},#{book.imageW},#{book.imageB})
+    </insert>
+    <update id="edit">
+        update t_book set bname=#{book.bname},author=#{book.author},price=#{book.price},currPrice=#{book.currPrice},discount=#{book.discount},press=#{book.press},publishtime=#{book.publishtime},edition=#{book.edition},pageNum=#{book.pageNum},wordNum=#{book.wordNum},printtime=#{book.printtime},booksize=#{book.booksize},paper=#{book.paper},cid=#{book.cid} where bid=#{book.bid}
+    </update>
+    <delete id="delete">
+        delete from t_book where bid = #{bid}
+    </delete>
+    <!-- 按名字查询 -->
+    <select id="find" resultType="com.zsy.goods.pojo.Book">
+        select * from t_book
+        where 1 = 1
+            <if test="cid!=null and cid!=''">
+                and cid = #{cid}
+            </if>
+            <!--<if test="searchMsg!=null and searchMsg!=''">-->
+                <!--<bind name="searchMsg" value="'%'+searchMsg+'%'"/>-->
+                <!--and bname like #{searchMsg}-->
+            <!--</if>-->
+            <!--<if test="searchMsg!=null and searchMsg!=''">-->
+                <!--<bind name="searchMsg" value="'%'+searchMsg+'%'"/>-->
+                <!--and author like #{searchMsg}-->
+            <!--</if>-->
+            <!--<if test="searchMsg!=null and searchMsg!=''">-->
+                <!--<bind name="searchMsg" value="'%'+searchMsg+'%'"/>-->
+                <!--and press like #{searchMsg}-->
+            <!--</if>-->
+
+            <if test="searchMsg != null and searchMsg != ''">
+                and (
+                bname like concat('%',#{searchMsg},'%')
+                or author like concat('%',#{searchMsg},'%')
+                or press like concat('%',#{searchMsg},'%')
+                )
+            </if>
+
+        order by orderBy limit #{pc}, #{ps}
+    </select>
+    <!-- 查询总数 -->
+    <select id="Count" resultType="int">
+        select count(*) from t_book
+        where 1 = 1
+            <if test="cid!=null and cid!=''">
+                and cid = #{cid}
+            </if>
+
+            <if test="searchMsg != null and searchMsg != ''">
+                and (
+                bname like concat('%',#{searchMsg},'%')
+                or author like concat('%',#{searchMsg},'%')
+                or press like concat('%',#{searchMsg},'%')
+                )
+            </if>
+
+    </select>
+    <select id="findByBid" resultType="com.zsy.goods.pojo.Book">
+        select * from t_book where bid = #{bid}
+    </select>
+    <select id="findByCid" resultType="com.zsy.goods.pojo.Category">
+        select * from t_category where cid = #{cid}
+    </select>
+</mapper>

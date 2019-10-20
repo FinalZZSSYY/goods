@@ -1,0 +1,59 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>网上图书商城</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/goods/css/bootstrap.css">
+    <link rel="stylesheet" href="/goods/css/bootstrap-theme.css">
+    <script src="/goods/js/jquery-3.3.1.min.js"></script>
+    <script src="/goods/js/bootstrap.min.js"></script>
+    <style type="text/css">
+        body {
+            font-size: 10pt;
+            color: #404040;
+            font-family: SimSun;
+        }
+
+        .divBody {
+            margin-left: 15%;
+        }
+
+        .divContent {
+            width: 900px;
+            height: 230px;
+            border: 5px solid #efeae5;
+            margin-right:20px;
+            margin-bottom:20px;
+        }
+        a {text-decoration: none;}
+        a:visited {color: #018BD3;}
+        a:hover {color:#FF6600; text-decoration: underline;}
+    </style>
+</head>
+<body>
+
+    <div class="divBody">
+        <div class="divContent">
+            <div style="margin: 20px;">
+                <div class="col-md-12" th:if="${code == 'success'}">
+                    <img style="float: left; margin-right: 30px;" src="/goods/images/duihao.jpg" width="150"/>
+                    <span th:text="${msg}" style="font-size: 30px; color: #c30; font-weight: 900;"></span>
+                </div>
+                <div class="col-md-12" th:if="${code == 'error'}">
+                    <img style="float: left; margin-right: 30px;" src="/goods/images/cuohao.png" width="150"/>
+                    <span th:text="${msg}" style="font-size: 30px; color: #c30; font-weight: 900;"></span>
+                </div>
+
+                <br/>
+                <br/>
+                <br/>
+                <br/>
+                <span style="margin-left: 50px;"><a target="_top" href="/goods/UserController/login">登录</a></span>
+                <span style="margin-left: 50px;"><a target="_top" href="/goods/">主页</a></span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

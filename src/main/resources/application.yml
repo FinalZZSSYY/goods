@@ -1,0 +1,33 @@
+# 修改访问端口
+server:
+  port: 9001
+  servlet:
+    context-path: /goods
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/goods?useUnicode=true&characterEncoding=UTF-8&serverTimezone=UTC&useSSL=false
+    username: root
+    password: password
+    #配置数据源
+    type: com.alibaba.druid.pool.DruidDataSource
+
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+
+#  mvc:
+#    static-path-pattern: /static/**
+
+
+mybatis:
+  #mybatis配置数据库中下划线自动转为驼峰
+  configuration:
+    map-underscore-to-camel-case: true
+  # 定义mapper.xml配置文件位置
+  mapper-locations: classpath:mappers/*.xml
+  type-aliases-package: com.zsy.goods.pojo
+

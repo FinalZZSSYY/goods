@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="list">
+    <!-- bootstrap 分页 -->
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            <li th:if="${pagination.showFirstPage}">
+                <a th:href="@{${pagination.url}+'&pageNum=1'}" aria-label="Previous">
+                    <span aria-hidden="true">&lt;&lt;</span>
+                </a>
+            </li>
+            <li th:if="${pagination.showPrevious}">
+                <!--<a th:href="@{/(pageNum=${pagination.pageNum-1})}" aria-label="Previous">-->
+                    <!--<span aria-hidden="true">&lt;</span>-->
+                <!--</a>-->
+                <a th:href="@{${pagination.url}+'&pageNum='+${pagination.pageNum-1}}" aria-label="Previous">
+                    <span aria-hidden="true">&lt;</span>
+                </a>
+            </li>
+
+            <li th:each="page : ${pagination.pagesNum}" th:class="${pagination.pageNum == page}?'active':''">
+                <!--<a th:href="@{/(pageNum=${page})}" th:text="${page}" >-->
+
+                <!--</a>-->
+                <a th:href="@{${pagination.url}+'&pageNum='+${page}}" th:text="${page}" >
+
+                </a>
+            </li>
+
+            <li th:if="${pagination.showNext}">
+                <!--<a th:href="@{/(pageNum=${pagination.pageNum+1})}" aria-label="Next">-->
+                    <!--<span aria-hidden="true">&gt;</span>-->
+                <!--</a>-->
+                <a th:href="@{${pagination.url}+'&pageNum='+${pagination.pageNum+1}}" aria-label="Next">
+                    <span aria-hidden="true">&gt;</span>
+                </a>
+            </li>
+            <li th:if="${pagination.showEndPage}">
+                <!--<a th:href="@{/(pageNum=${pagination.totalPage})}" aria-label="Next">-->
+                    <!--<span aria-hidden="true">&gt;&gt;</span>-->
+                <!--</a>-->
+                <a th:href="@{${pagination.url}+'&pageNum='+${pagination.totalPage}}" aria-label="Next">
+                    <span aria-hidden="true">&gt;&gt;</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- bootstrap 分页 -->
+</div>
+
+
+
+</body>
+</html>

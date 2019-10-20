@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="nav">
+    <!-- 左侧目录 -->
+    <nav class="navbar navbar-default" >
+        <ul id="main-nav" class="nav nav-tabs nav-stacked" >
+            <li th:each="parent : ${session.parents}">
+                <a th:href="@{'#'+${parent.cid}}"   class="nav-header collapsed" data-toggle="collapse" th:text="${parent.cname}">
+                </a>
+                <ul th:id="${parent.cid}" class="nav nav-list collapse secondmenu" style="height: 0px;"  >
+                    <li th:each="child : ${parent.children}">
+                        <a th:href="@{'/BookController/findByCategory?cid='+${child.cid}}" th:text="${child.cname}"></a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+</nav>
+    <!-- 左侧目录 -->
+</div>
+
+
+
+</body>
+</html>

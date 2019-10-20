@@ -1,0 +1,37 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<div th:fragment="list">
+    <!-- 商品列表 -->
+    <nav class="navbar navbar-default">
+        <div class="col-md-3 " style="height: 450px" th:each="book : ${pagination.pageList}" th:if="${pagination?.pageList}">
+            <div class="inner">
+                <!---->
+                <a class="pic" th:href="@{'/BookController/load?bid='+${book.bid}}"><img  th:src="@{'/'+${book.imageB }}"  border="0"/></a>
+
+                <p class="price">
+                    <span class="price_n" th:text="'¥'+${book.currPrice }"></span>
+                    <span class="price_r" th:text="'¥'+${book.price }"></span>
+                    (<span class="price_s" th:text="${book.discount }+'折'"></span>)
+                </p>
+                <p>
+                    <a id="bookname" title="${book.bname }"  th:href="@{'/BookController/load?bid='+${book.bid}}" th:text="${book.bname }">
+                    </a>
+                </p>
+
+                <p><a th:href="@{'/BookController/findByAuthor?author='+${book.author}}" name='P_zz' th:title="${book.author }" th:text="${book.author }"></a></p>
+                <p class="publishing">
+                    <span>出 版 社：</span><a th:href="@{'/BookController/findByAuthor?press='+${book.press}}" th:text="${book.press }"></a>
+                </p>
+                <p class="publishing_time" th:text="'出版时间：'+${book.publishtime }"></p>
+            </div>
+        </div>
+    </nav>
+    <!-- 商品列表 -->
+</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zsy.goods.mapper.UserMapper">
+    <insert id="add">
+        insert into t_user values(#{user.uid},#{user.loginname},#{user.loginpass},#{user.email},#{user.status},#{user.activationCode})
+    </insert>
+    <update id="updatePassword">
+        update t_user set loginpass=#{password} where uid=#{uid}
+    </update>
+
+
+    <select id="ajaxValidateLoginname" resultType="java.lang.Integer">
+        select count(1) from t_user where loginname=#{loginname}
+    </select>
+    <select id="ajaxValidateEmail" resultType="java.lang.Integer">
+        select count(1) from t_user where email=#{email}
+    </select>
+    <select id="findByLoginnameAndLoginpass" resultType="com.zsy.goods.pojo.User">
+        select * from t_user where loginname=#{loginname} and loginpass=#{loginpass}
+    </select>
+    <select id="findByUidAndPassword" resultType="java.lang.Integer">
+        select count(*) from t_user where uid=#{uid} and loginpass=#{password}
+    </select>
+</mapper>

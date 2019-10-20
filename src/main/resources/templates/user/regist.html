@@ -1,0 +1,98 @@
+<!DOCTYPE HTML>
+<html   xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>网上图书商城</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/goods/css/bootstrap.css">
+    <link rel="stylesheet" href="/goods/css/bootstrap-theme.css">
+    <link rel="stylesheet" href="/goods/css/bootstrapValidator.min.css">
+    <link rel="stylesheet" href="/goods/css/user/regist.css">
+    <script src="/goods/js/jquery-3.3.1.min.js"></script>
+    <script src="/goods/js/bootstrap.min.js"></script>
+
+    <script src="/goods/js/bootstrapValidator.min.js"></script>
+    <script src="/goods/js/user/regist.js"></script>
+</head>
+
+<script type="text/javascript">
+</script>
+
+<body>
+<!--导航-->
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <label class="navbar-brand">新用户注册</label>
+    </div>
+</nav>
+<!--导航-->
+
+<!-- 注册表单 -->
+<section id="regist">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-offset-3 col-md-6">
+                <form class="form-horizontal" action="/goods/UserController/regist" method="post">
+                    <div class="col-md-12">
+                        <span class="heading" style="color: #00b4ef">新用户注册</span>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="loginname" for="loginname">用户名</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" th:value="${form?.loginname}"  class="form-control" id="loginname" name="loginname" placeholder="用户名">
+                        </div>
+                        <div class="col-md-11">
+                            <span class="error" th:text="${errors.loginname}" th:if="${errors?.loginname!=null}"></span>
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="loginpass" for="loginpass">登录密码</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" th:value="${form?.loginpass}" class="form-control" id="loginpass" name="loginpass" placeholder="登录密码">
+                        </div>
+                        <div class="col-md-11">
+                            <span class="error"  th:text="${errors?.loginpass}" th:if="${errors?.loginpass!=null}"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="reloginpass" for="reloginpass">确认密码</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" th:value="${form?.reloginpass}" class="form-control" id="reloginpass" name="reloginpass" placeholder="确认密码">
+                        </div>
+                        <div class="col-md-11">
+                            <span class="error"  th:text="${errors?.reloginpass}" th:if="${errors?.reloginpass!=null}"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-3">
+                            <label class="email" for="email">邮箱Email</label>
+                        </div>
+                        <div class="col-md-8">
+                            <input type="text" th:value="${form?.email}" class="form-control" id="email" name="email" placeholder="邮箱Email">
+                        </div>
+                        <div class="col-md-11">
+                            <span class="error"  th:text="${errors?.email}" th:if="${errors?.email!=null}"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-11">
+                            <button type="submit" class="btn btn-success btn-publish" >立即注册</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>

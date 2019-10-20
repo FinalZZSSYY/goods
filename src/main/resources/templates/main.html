@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>网上图书商城</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="/goods/css/bootstrap.css">
+    <link rel="stylesheet" href="/goods/css/bootstrap-theme.css">
+    <script src="/goods/js/jquery-3.3.1.min.js"></script>
+    <script src="/goods/js/bootstrap.min.js"></script>
+
+    <script src="/goods/js/book/list.js" th:if="${pb?.beanList}"></script>
+    <link rel="stylesheet" href="/goods/css/left.css">
+
+</head>
+
+<script type="text/javascript">
+</script>
+
+<body>
+    <div class="row">
+        <div class="col-md-12">
+            <!-- 导航条 -->
+            <div th:insert="~{navigation :: nav}"></div>
+            <!-- 导航条 -->
+        </div>
+
+        <div class="col-md-2">
+            <!-- 左侧目录 -->
+            <div th:insert="~{left :: nav}"></div>
+            <!-- 左侧目录 -->
+        </div>
+
+        <div class="col-md-10">
+
+
+            <!-- 图书列表 -->
+            <div th:insert="~{list :: nav}" class="row" th:if="${pagination?.pageList}"></div>
+            <!-- 图书列表 -->
+
+            <!-- 分页 -->
+            <div th:insert="~{page :: nav}" class="row" th:if="${pagination?.pageList}"></div>
+            <!-- 分页 -->
+        </div>
+    </div>
+
+
+</body>
+</html>
