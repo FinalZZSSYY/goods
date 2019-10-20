@@ -28,7 +28,7 @@ import java.util.*;
  * @Description:
  * @Date:Create：in 2019/9/11 14:50
  */
-public class DateUtils {
+public class DateUtil {
     //获取当天的开始时间
     public static Date getDayBegin() {
         Calendar cal = new GregorianCalendar();
@@ -431,15 +431,15 @@ public class DateUtils {
     
 //    public static void main(String[] args){
 //        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-//        String todayBegin = simpleDateFormat.format(DateUtils.getDayBegin());
-//        String todayBegin1 = simpleDateFormat.format(DateUtils.getBeginDayOfWeek());
-//        String todayBegin2 = simpleDateFormat.format(DateUtils.getBeginDayOfMonth());
-//        String todayBegin3 = simpleDateFormat.format(DateUtils.getBeginDayOfYear());
+//        String todayBegin = simpleDateFormat.format(DateUtil.getDayBegin());
+//        String todayBegin1 = simpleDateFormat.format(DateUtil.getBeginDayOfWeek());
+//        String todayBegin2 = simpleDateFormat.format(DateUtil.getBeginDayOfMonth());
+//        String todayBegin3 = simpleDateFormat.format(DateUtil.getBeginDayOfYear());
 //
-//        String todayEnd = simpleDateFormat.format(DateUtils.getDayEnd());
-//        String todayEnd1 = simpleDateFormat.format(DateUtils.getEndDayOfWeek());
-//        String todayEnd2 = simpleDateFormat.format(DateUtils.getEndDayOfMonth());
-//        String todayEnd3 = simpleDateFormat.format(DateUtils.getEndDayOfYear());
+//        String todayEnd = simpleDateFormat.format(DateUtil.getDayEnd());
+//        String todayEnd1 = simpleDateFormat.format(DateUtil.getEndDayOfWeek());
+//        String todayEnd2 = simpleDateFormat.format(DateUtil.getEndDayOfMonth());
+//        String todayEnd3 = simpleDateFormat.format(DateUtil.getEndDayOfYear());
 //
 //        System.out.println(getCurrentMonthDay());
 //
@@ -449,16 +449,16 @@ public class DateUtils {
 //        System.out.println(todayBegin3 + "  "+todayEnd3);
 //
 //        //本年开始时间
-//        System.out.println(DateUtils.getMonthBegin(DateUtils.getBeginDayOfYear()));
-//        System.out.println(DateUtils.getMonthEnd(DateUtils.getBeginDayOfYear()));
-//        System.out.println(DateUtils.getEndDayOfYear().getTime());
-//        System.out.println(DateUtils.getMonthBegin(DateUtils.getMonthEnd(DateUtils.getBeginDayOfYear())+1));
-//        System.out.println(DateUtils.getMonthEnd(DateUtils.getMonthEnd(DateUtils.getBeginDayOfYear())+1));
+//        System.out.println(DateUtil.getMonthBegin(DateUtil.getBeginDayOfYear()));
+//        System.out.println(DateUtil.getMonthEnd(DateUtil.getBeginDayOfYear()));
+//        System.out.println(DateUtil.getEndDayOfYear().getTime());
+//        System.out.println(DateUtil.getMonthBegin(DateUtil.getMonthEnd(DateUtil.getBeginDayOfYear())+1));
+//        System.out.println(DateUtil.getMonthEnd(DateUtil.getMonthEnd(DateUtil.getBeginDayOfYear())+1));
 //        System.out.println("==============");
 //        //日期转时间戳（毫秒）
-//        System.out.println(DateUtils.getBeginDayOfWeek().getTime());
-//        System.out.println(DateUtils.getBeginDayOfWeek().getTime()+1000*3600*24);
-//        System.out.println(DateUtils.getEndDayOfWeek().getTime()-1000*3600*24*6);
+//        System.out.println(DateUtil.getBeginDayOfWeek().getTime());
+//        System.out.println(DateUtil.getBeginDayOfWeek().getTime()+1000*3600*24);
+//        System.out.println(DateUtil.getEndDayOfWeek().getTime()-1000*3600*24*6);
 //        System.out.println(System.currentTimeMillis());
 //    }
 
